@@ -1,0 +1,251 @@
+<!doctype html>
+{% load static %} 
+{% load staticfiles %}
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://html5-templates.com/" />
+    <title>GNU Radio</title>
+	<meta name="description" content="A minimalist Bootstrap theme by StartBootstrap. Contains everything you need to get started building your website. All you have to do is change the text and images.">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/modern-business.css' %}" rel="stylesheet">
+    <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{% url 'index' %}">Protocolo IEEE802.11a/b/g en  GNU Radio</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="{% url 'about' %}">Artículos Relacionados</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'services' %}">Reporte de Experimentos </a>
+                        
+                    </li>
+                    <li>
+                        <a href="{% url 'bloque' %}">Cómo crear un bloque</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="{% url 'bloque' %}" class="dropdown-toggle" data-toggle="dropdown">Páginas de Documentación<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="https://www.gnuradio.org/">Foro GNU Radio</a>
+                            </li>
+                            <li>
+                                <a href="portfolio-3-col.html">C++</a>
+                            </li>
+                            <li>
+                                <a href="portfolio-4-col.html">Python</a>
+                            </li>
+                            <li>
+                                <a href="portfolio-item.html">Wiki</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+
+
+                    <li class="dropdown">
+                          <a href="{% url 'pruebas' %}">Pruebas con GRC</a>
+                    </li>
+                                       <li>
+                        <a href="{% url 'instalacion' %}">Instalación y tips </a>
+                        
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Header Carousel -->
+    <header id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="fill" style="background-image:url('static/9.png');"></div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('static/18.png');"></div>
+
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('static/28.png');"></div>
+
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+    </header>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Marketing Icons Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header" align="center">
+                    ¿Qué es GNU Radio?
+                </h1>
+            </div>
+        </div>
+    
+
+                <h4 class="page-body"><p>
+                La definición de GNU Radio en [4] es descrita como un software de desarrollo libre y de
+                código abierto, éste implementa software que manipula las señales de radiofrecuencia. Puede
+                ser utilizado con dispositivos externos con hardware de radiofrecuencia, o sin hardware en una
+                simulación con el ambiente. Utiliza una plataforma digital que facilita su programación y lo
+                hace de manera interactiva, dicha plataforma se llama GRC (GNU Radio Companion). GNU
+                Radio tiene dos conceptos importantes que son flujo de grafos y bloques, el primero tiene mayor
+                representación en lo que corresponde la Teoría de Grafos y por este medio fluyen los datos de
+                bloque a bloque. Los bloques representan los llamados nodos en Teoría de Grafos y la conexión
+                entre bloques correspondería a las ramas.
+                </p></h4>
+          
+        <!-- /.row -->
+
+           <center><div class="col-lg-6">
+                <a href="portfolio-item.html">
+                    <img class="img-responsive img-portfolio img-hover" src="{% static 'red.jpg' %}" alt="">
+                </a>
+            </div></center>
+
+		<div class="row">
+
+            <div class="col-lg-12">
+                <h2 class="page-header">USRP (Universal Software Radio Peripherial)</h2>
+            </div><br><br/>
+		</div>
+				<!--div class="col-md-4 col-sm-6"-->
+				
+                <!--div/-->
+            <div class="col-md-4 col-sm-6 col-md-6"> 
+                <!--a href="portfolio-item.html"-->
+                    <img width="600" height="400" src="{% static 'usrp.png' %}" alt="">
+            </div>                      
+                <!--/a-->
+
+                <div class="col-sm-8 col-lg-8">
+                    El concepto SDR se define en [2] como un conjunto de DSP’s (Digital Signal Procesing)
+                    primitivos, un sistema de meta niveles que combinan funciones de los sistemas de comunicación
+                    y un conjunto de procesadores objetivo que permiten que la comunicación sea implementada
+                    en tiempo real, además de disponer de una etapa de radiofrecuencia. Para adecuarse al sistema
+                    de comunicación que se requiere implementar se reconfigura el radio de radiofrecuencia SDR a
+                    través del software. Existen dos plataformas en las que se puede implementar SDR (GNU Radio y Labview); estas cuentan con un entorno gráfico que facilita su manejo. Lenguajes como C++,
+                    Python y MATLAB también se utilizan para el desarrollo, de hecho, estas dos plataformas se
+                    encuentran programadas en los lenguajes mencionados. En este trabajo se utilizó la plataforma
+                    GNU Radio por su fácil interacción con el código, además de la tendencia actual hacia el
+                    código libre que vienen ofreciendo las nuevas tecnologías. El dispositivo que se utiliza en el
+                    presente trabajo, que interactúa con GNU Radio, es identificado como USRP 2932, por sus
+                    siglas en inglés (Universal Software Radio Peripherial). A continuación, se muestra en Fig.
+                    1-1 un diagrama donde se encuentra del lado izquierdo la etapa de procesamiento en banda
+                    base y del lado derecho la etapa de tratamiento de radiofrecuencia de las señales en un USRP.
+                    Risset en [3], clasifica el manejo de GNU Radio representado en Fig. 1-1; la sección izquierda del
+                    diagrama siendo el back-end (procesamiento digital), mientras que la sección derecha representa
+                    el front-end (circuitos de radiofrecuencia).
+                                    <div><li>Para la instalación de la biblioteca UHD se puede ir a la sección "instalación y tips", además de encontrar algunos detalles de la configuración del sistema oprativo con el USRP.</li>
+                </div><br></br><br>}</br>
+                </div><br></br>
+
+
+
+                <center><div>
+                <iframe title="Pruebas de transmisión" width="700" height="500" src="{% static 'datasheet.pdf' %}">Artículo</iframe>
+                </div></center><br></br>
+
+
+                <div>
+                   <h4><ol>
+                    Para la simulación del estándar IEEE802.11 en GNU Radio, se siguen los siguientes pasos:</ol>
+                    <li>Instalar el bloque ieee802-11, (en la sección de "instalación y tips" de esta página se encuentran los pasos)</li>
+                    <li>Entrar a la carpeta examples dentro de gr-ieee802-11 y correr el script en GNU Radio wifi_phy_hier.grc</li>
+                    <li>En la misma carpeta examples correr el script wifi_rx.grc para la recepción y wifi_tx.grc para la transmisión</li></h4>
+                </div><br></br>
+
+                <!--a href="portfolio-item.html"-->
+                  <center>  <img width="800" height="500" src="{% static 'phy.png' %}" class="center"> </center>
+                      
+
+
+
+                 <center>  <img width="800" height="500" src="{% static 'wifi_tx.png' %}" class="center"> </center>
+                <!--/a-->
+
+        <!-- Portfolio Section -->
+ 
+        <!-- /.row -->
+
+        <!-- Features Section -->
+        <!--div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">Modern Business Features</h2>
+            </div>
+            <div class="col-md-6">
+                <p>Trabajos de interés</p>
+
+                <p>USRP (Universal Software Radio
+                    Peripherial), siendo fundamental para llevar acabo la simulación del algoritmo desarrollado por
+                    Chia-Horn en [5] donde implementa el estándar IEEE 802.11. La primera implementación del
+                    1http://www.ettus.com/
+                    3
+                    estándar fue hecha en [6] por la Universidad de Salento, en donde implementaron la parte de
+                    transmisión, posteriormente Bloessl en conjunto con sus colegas detalla en [7] la construcción
+                    del receptor en GNU Radio. Por otro lado, existen trabajos que fueron implementados en Lab-
+                    VIEW, estos tienen un entorno distinto, sin embargo, al igual que GNU Radio maneja el flujo
+                    de bloques.
+                    1.4.</p>
+            </div>
+        </div-->
+
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <!-- Script to Activate the Carousel -->
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+    </script>
+
+</body>
+
+</html>

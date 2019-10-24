@@ -1,0 +1,129 @@
+.<!doctype html>
+{% load static %} 
+{% load staticfiles %}
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://html5-templates.com/" />
+    <title>Artículos Realcionados</title>
+
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/modern-business.css' %}" rel="stylesheet">
+    <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{% url 'index' %}">Protocolo IEEE802.11a/b/g en  GNU Radio</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="{% url 'about' %}">Artículos Relacionados</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'services' %}">Reporte de Experimentos </a>
+                        
+                    </li>
+                    <li>
+                        <a href="{% url 'bloque' %}">Cómo crear un bloque</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Páginas de Documentación<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="https://www.gnuradio.org/">Foro GNU Radio</a>
+                            </li>
+                            <li>
+                                <a href="portfolio-3-col.html">C++</a>
+                            </li>
+                            <li>
+                                <a href="portfolio-4-col.html">Python</a>
+                            </li>
+                            <li>
+                                <a href="portfolio-item.html">Wiki</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+
+                    <li class="dropdown">
+                          <a href="{% url 'pruebas' %}">Pruebas con GRC</a>
+                    </li>
+                                       <li>
+                        <a href="{% url 'instalacion' %}">Instalación y tips </a>
+                        
+                    </li>
+                </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Artículos Relacionados
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Intro Content -->
+        <div class="row">
+            <div class="col-md-12">
+                <p>En este apartado puedes encontrar referencias de la construcción del protocolo 802.11 como algoritmo y como arquitectura. Adémas dejo el artículo de wifi receptor y estándar 802.11 del que se basaron para las construcción del algoritmo y el diagrama de bloques en GNU Radio.</p>
+            </div>
+        </div>
+
+                <center><div>
+                <iframe title="Pruebas de transmisión" width="700" height="500" src="{% static '802.11-standard.pdf' %}">Estándar IEEE802.11 del año 1999</iframe>
+                </div></center><br></br>
+
+                <center><div>
+                <iframe title="Pruebas de transmisión" width="700" height="500" src="{% static 'p9.pdf' %}">An IEEE 802.11a/g/p OFDM Receiver for GNU Radio</iframe>
+                </div></center><br></br>
+        <hr>
+
+    </div>
+    <!-- /.container -->
+
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website, year</p>
+                </div>
+            </div>
+        </footer>
+
+    <!-- jQuery -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+</body>
+
+</html>
