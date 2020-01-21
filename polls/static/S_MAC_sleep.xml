@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<block>
+  <name>sleep</name>
+  <key>S_MAC_sleep</key>
+  <category>S_MAC</category>
+  <import>import S_MAC</import>
+  <make>S_MAC.sleep($schedule)</make>
+  <!-- Make one 'param' node for every Parameter you want settable from the GUI.
+       Sub-nodes:
+       * name
+       * key (makes the value accessible as $keyname, e.g. in the make node)
+       * type -->
+  <param>
+    <name>Schedule</name>
+    <key>schedule</key>
+    <type>float</type>
+  </param>
+
+  <!-- Make one 'sink' node per input. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+	<param>
+		<name>Type</name>
+		<key>type</key>
+		<type>enum</type>
+		<option>
+			<name>Complex</name>
+			<key>complex</key>
+			<opt>fcn:cc</opt>
+			<opt>scale:complex</opt>
+		</option>
+		<option>
+			<name>Float</name>
+			<key>float</key>
+			<opt>fcn:ff</opt>
+			<opt>scale:real</opt>
+		</option>
+	</param>
+  
+    <sink>
+    <name>in</name>
+    <type>complex</type>
+  	</sink>
+
+  <!-- Make one 'source' node per output. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+
+    <source>
+    <name>out</name>
+    <type>complex</type>
+  	</source>
+</block>

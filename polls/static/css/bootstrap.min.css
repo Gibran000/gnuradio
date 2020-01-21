@@ -9,3 +9,11 @@ line-height: 130%   /*esta es la propiedad para el interlineado*/
 padding: 10px;
 }
 
+table
+{
+border-collapse: collapse; /* Los bordes de la tabla aparecen juntos */
+}
+td
+{
+border: 1px solid black;
+}

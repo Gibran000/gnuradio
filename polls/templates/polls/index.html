@@ -48,14 +48,18 @@
                                 <a href="https://www.gnuradio.org/">Foro GNU Radio</a>
                             </li>
                             <li>
-                                <a href="portfolio-3-col.html">C++</a>
+                                <a href="https://www.gnuradio.org/doc/doxygen/">Manual C++</a>
                             </li>
                             <li>
-                                <a href="portfolio-4-col.html">Python</a>
+                                <a href="https://gnuradio.org/doc/sphinx">Manual Python</a>
                             </li>
                             <li>
-                                <a href="portfolio-item.html">Wiki</a>
+                                <a href="https://wiki.gnuradio.org/">Wiki</a>
                             </li>
+                            <li>
+                                <a href="https://orbit-lab.org/">Orbit</a>
+                            </li>
+
                         </ul>
                     </li>
 
@@ -123,11 +127,11 @@
     
 
                 <h4 class="page-body"><p>
-                La definición de GNU Radio en [4] es descrita como un software de desarrollo libre y de
+                La definición de GNU Radio es descrita como un software de desarrollo libre y de
                 código abierto, éste implementa software que manipula las señales de radiofrecuencia. Puede
                 ser utilizado con dispositivos externos con hardware de radiofrecuencia, o sin hardware en una
                 simulación con el ambiente. Utiliza una plataforma digital que facilita su programación y lo
-                hace de manera interactiva, dicha plataforma se llama GRC (GNU Radio Companion). GNU
+                hace de manera interactiva, dicha plataforma se llama GRC (GNU Radio Companion) <b>[Páginas de Documentación -> GNU Radio]</b>. GNU
                 Radio tiene dos conceptos importantes que son flujo de grafos y bloques, el primero tiene mayor
                 representación en lo que corresponde la Teoría de Grafos y por este medio fluyen los datos de
                 bloque a bloque. Los bloques representan los llamados nodos en Teoría de Grafos y la conexión
@@ -153,55 +157,64 @@
                 <!--div/-->
             <div class="col-md-4 col-sm-6 col-md-6"> 
                 <!--a href="portfolio-item.html"-->
-                    <img width="600" height="400" src="{% static 'usrp.png' %}" alt="">
+                    <img width="500" height="300" src="{% static 'usrp.png' %}" alt="">
             </div>                      
                 <!--/a-->
 
                 <div class="col-sm-8 col-lg-8">
-                    El concepto SDR se define en [2] como un conjunto de DSP’s (Digital Signal Procesing)
-                    primitivos, un sistema de meta niveles que combinan funciones de los sistemas de comunicación
+                    El concepto SDR se define en "Software radios-survey, critical evaluation and future directions" como un conjunto de DSP’s (Digital Signal Procesing) primitivos, un sistema de meta niveles que combinan funciones de los sistemas de comunicación
                     y un conjunto de procesadores objetivo que permiten que la comunicación sea implementada
-                    en tiempo real, además de disponer de una etapa de radiofrecuencia. Para adecuarse al sistema
-                    de comunicación que se requiere implementar se reconfigura el radio de radiofrecuencia SDR a
-                    través del software. Existen dos plataformas en las que se puede implementar SDR (GNU Radio y Labview); estas cuentan con un entorno gráfico que facilita su manejo. Lenguajes como C++,
-                    Python y MATLAB también se utilizan para el desarrollo, de hecho, estas dos plataformas se
-                    encuentran programadas en los lenguajes mencionados. En este trabajo se utilizó la plataforma
-                    GNU Radio por su fácil interacción con el código, además de la tendencia actual hacia el
-                    código libre que vienen ofreciendo las nuevas tecnologías. El dispositivo que se utiliza en el
-                    presente trabajo, que interactúa con GNU Radio, es identificado como USRP 2932, por sus
-                    siglas en inglés (Universal Software Radio Peripherial). A continuación, se muestra en Fig.
-                    1-1 un diagrama donde se encuentra del lado izquierdo la etapa de procesamiento en banda
-                    base y del lado derecho la etapa de tratamiento de radiofrecuencia de las señales en un USRP.
-                    Risset en [3], clasifica el manejo de GNU Radio representado en Fig. 1-1; la sección izquierda del
-                    diagrama siendo el back-end (procesamiento digital), mientras que la sección derecha representa
-                    el front-end (circuitos de radiofrecuencia).
-                                    <div><li>Para la instalación de la biblioteca UHD se puede ir a la sección "instalación y tips", además de encontrar algunos detalles de la configuración del sistema oprativo con el USRP.</li>
-                </div><br></br><br>}</br>
+                    en tiempo real, además de disponer de una etapa de radiofrecuencia. En los trabajos desarrollados en <b>[Reporte de Experimentos]</b> se utilizó la plataforma GNU Radio. El dispositivo que se utiliza en el desarrollo de los trabajos de investigación, que interactúa con GNU Radio, es identificado como USRP 2932, por sus siglas en inglés (Universal Software Radio Peripherial). <br></br><br></br>
+
+                <div><li>El procedimiento para la instalación de la biblioteca UHD se encuentra en la sección <b>[instalación y tips]</b>, además  se encuentran algunos detalles de la configuración del sistema oprativo con el USRP.</li>
+                </div><br></br><br></br>
+
+
                 </div><br></br>
 
+           <div class="col-lg-12">
+                <div class="panel panel-default text-center">
+  
+                    <div class="panel-body">
+                        <h4>Hoja de Especificaciones</h4>
+                        <iframe title="Pruebas de transmisión" width="800" height="500" src="{% static 'datasheet.pdf' %}">Artículo</iframe>
 
-
-                <center><div>
-                <iframe title="Pruebas de transmisión" width="700" height="500" src="{% static 'datasheet.pdf' %}">Artículo</iframe>
-                </div></center><br></br>
-
+                    </div>
+                </div><br></br><h3>Estándar IEEE802.11 en GNU Radio<hr>
+            </div><br></br>
 
                 <div>
-                   <h4><ol>
-                    Para la simulación del estándar IEEE802.11 en GNU Radio, se siguen los siguientes pasos:</ol>
-                    <li>Instalar el bloque ieee802-11, (en la sección de "instalación y tips" de esta página se encuentran los pasos)</li>
-                    <li>Entrar a la carpeta examples dentro de gr-ieee802-11 y correr el script en GNU Radio wifi_phy_hier.grc</li>
-                    <li>En la misma carpeta examples correr el script wifi_rx.grc para la recepción y wifi_tx.grc para la transmisión</li></h4>
+                    <h4>
+                    Para generar el estándar IEEE802.11 en GNU Radio primero se debe ir a la sección <b>[instalación y tips]</b> e instalar todo lo requirido. Después:<br></br>
+                    <li>Entrar a la carpeta "examples" dentro de gr-ieee802-11 y correr el script en GNU Radio wifi_phy_hier.grc</li>
+                    <li>En la misma carpeta "examples" correr el script wifi_rx.grc para la recepción y wifi_tx.grc para la transmisión</li><br></br>
+                    En la siguiente figura se muestra el diagrama de bloques de wifi_phy_hier.grc. Este diagrama prácticamente es el bloque jerárquico que hace funcional al transmisor y receptor WiFi. Los bloques en los recuadros de color rojo son los bloques que permiten hacer la conexión con otros bloques de otro script. Al ser ejecutado el script wifi_phy_hier.grc se generan las bibliotecas necesarias para los scripts que requieran de estos bloques como en el caso de wifi_tx.grc y wifi_transceiver.grc.
+                </h4>
                 </div><br></br>
 
                 <!--a href="portfolio-item.html"-->
-                  <center>  <img width="800" height="500" src="{% static 'phy.png' %}" class="center"> </center>
+                 <div> <center>  <img width="800" height="500" src="{% static 'phy.png' %}" class="center"> </center><br></br></div><br></br>
                       
 
 
+                <div><h3>Transmisor Wifi en GNU Radio</h3> <hr>
+                    <h4>A continuación se observa el diagrama de bloques del transmisor WiFi.</h4>
+                 <center>  <img width="800" height="500" src="{% static 'wifi_tx.png' %}" class="center"> </center><br></br>
+                 <h4>A continuación se observa la interfaz gráfica que se debe desplegar al correr el script. Las opciones que se pueden variar son: ganacia del transmisor, ancho de banda, longitud del paquete, frecuencia del oscilador local, intervalo entre paquetes, frecuencia de transmisión y modulación.  </h4>
 
-                 <center>  <img width="800" height="500" src="{% static 'wifi_tx.png' %}" class="center"> </center>
+                 <center>  <img width="600" height="300" src="{% static '14.png' %}" class="center"> </center>
                 <!--/a-->
+                </div><br></br>
+
+
+                <div><h3>Receptor Wifi en GNU Radio</h3><hr>
+                      <h4>En este caso el diagrama de bloques del receptor WiFi no utiliza las bibliotecas de wifi_phy_hier y se muestra en la siguiente imagen</h4>
+                 <center>  <img width="700" height="600" src="{% static 'wifi_rx.png' %}" class="center"> </center><br></br>
+                   <h4>Para el caso de recepción sus componentes interactivas y sus parámetros variables son: ancho de banda, frecuqncia del oscilador local, ganancia de recepción, frecuencia de transmisión, modo para la estimación de canal, interfaz de oscilador y diagrama para esquema constelación.</h4>
+                 <center>  <img width="600" height="300" src="{% static '13.png' %}" class="center"> </center>
+                <!--/a-->
+                </div>
+
 
         <!-- Portfolio Section -->
  
@@ -229,6 +242,14 @@
             </div>
         </div-->
 
+        <br></br><br></br><br></br><br></br><br></br>
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website, year</p>
+                </div>
+            </div>
+        </footer>
 
     </div>
     <!-- /.container -->

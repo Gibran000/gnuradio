@@ -49,13 +49,13 @@
                                 <a href="https://www.gnuradio.org/">Foro GNU Radio</a>
                             </li>
                             <li>
-                                <a href="portfolio-3-col.html">C++</a>
+                                <a href="https://www.gnuradio.org/doc/doxygen/">Manual C++</a>
                             </li>
                             <li>
-                                <a href="portfolio-4-col.html">Python</a>
+                                <a href="https://gnuradio.org/doc/sphinx">Manual Python</a>
                             </li>
                             <li>
-                                <a href="portfolio-item.html">Wiki</a>
+                                <a href="https://wiki.gnuradio.org/index.php/Usage_Manual">Wiki</a>
                             </li>
                         </ul>
                     </li>
@@ -93,6 +93,113 @@
                 <p><a href="{% static 'packet_tx.grc' %}">packet_tx</a></p>
  
 
+        <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+
+            <h4>Así como se pueden correr scripts en la plataforma GRC, también se pueden correr simulaciones en el lenguaje de programción Python, un ejemplo es el que se muestra a continuación.</h4>
+
+           <div class="col-lg-2">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                <p><a href="{% static 'CSMA.tar.gz' %}"><h3>csma</h3></a></p>
+               </div>
+            </div>
+        </div>
+
+           <div class="col-lg-3">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                <p><a href="{% static 'ofdm.tar.gz' %}"><h3>benchmark</h3></a></p>
+               </div>
+            </div>
+        </div><br></br><br></br><br></br>
+
+           <h4>En el código del archivo benchmark_rx.py se encuentran las siguientes líneas de código, estas líneas de código muestran un primer constructor de la clase top_block, esta clase es la clase que hace la conexión y da los atributos y métodos para el funcionamiento de la simulación.</h4><br></br>
+ 
+  <tbody>
+
+    <tr>
+      <td><pre>class my_top_block(gr.top_block):
+    def __init__(self, demodulator, rx_callback, options):
+        gr.top_block.__init__(self)</pre>
+      </td>
+
+    </tr>
+
+  </tbody>
+
+         <h4>Después de algunas líneas de código que validan las carcterísticas de recepción dentro de la función top_block se muestran los siguientes métodos</h4>
+  <tbody>
+
+    <tr>
+      <td><pre>        self.rxpath = receive_path(demodulator, rx_callback, options) 
+
+        self.connect(self.source, self.rxpath)</pre>
+      </td>
+
+      <h4><li>La primera línea de código ejecuta la recepción de paquetes con las clases que ejecutan las funciones de demodulación, de configuración analógica y de herencia de métodos.</li><br></br>
+
+        <li>La segunda línea de código es la que ejecuta la conexión entre los datos de entrada y los de salida, es decir, las conexiones entre los puertos de los bloques, la función connect es propia las funciones de la biblioteca gnuradio.
+        </li><br></br>
+
+      </h4>  
+
+    </tr>
+
+<tbody>
+    <h4>Después en el mismo script se programa la ejecución de la secuencia de recepción y el desempaquetado, la función rx_callback es la que se encarga de ello dentro del main. A diferencia de los scripts de GRC, no se ocupan bloques, solamente las funciones de GNU Radio. Sin embargo, también utiliza un objeto tb definido al principio del script.</h4>
+</tbody>
+
+   <tr>
+      <td><pre>def main():
+    global n_rcvd, n_right
+
+    n_rcvd = 0
+    n_right = 0
+    
+    def rx_callback(ok, payload):
+        global n_rcvd, n_right
+        (pktno,) = struct.unpack('!H', payload[0:2])
+        n_rcvd += 1
+        if ok:
+            n_right += 1     
+        </pre>
+      </td>
+
+    </tr>
+
+<tbody>
+    <h4>Como en todos los scripts con clases de gnuradio segenera un objeto tb que es prácticamente un derivado de la clase top_block de gnuradio.</h4>
+
+</tbody>
+
+
+<tr>
+    <td>
+        <pre>
+    tb = my_top_block(demods[options.modulation], rx_callback, options)
+
+    r = gr.enable_realtime_scheduling()
+    if r != gr.RT_OK:
+        print "Warning: Failed to enable realtime scheduling."
+
+    tb.start()        # start flow graph
+    tb.wait()         # wait for it to finish
+        </pre>
+    </td>
+</tr>
+
+
+<h4>Para entender mejor el proceso de programación de los scripts en GNU Radio se puede generar un bloque <b>[Cómo crear un bloque]</b> o ir directamente a la documentación.</h4>
+
+  </tbody>
+
+
+
+
+        </div>
+
+
         <!-- /.row -->
 
         <hr>
@@ -108,6 +215,16 @@
 
     </div>
     <!-- /.container -->
+
+
+<!--         <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website, year</p>
+                </div>
+            </div>
+        </footer>
+ -->
 
     <!-- jQuery -->
     <script src="{% static 'js/jquery.js' %}"></script>

@@ -49,13 +49,13 @@
                                 <a href="https://www.gnuradio.org/">Foro GNU Radio</a>
                             </li>
                             <li>
-                                <a href="portfolio-3-col.html">C++</a>
+                                <a href="https://www.gnuradio.org/doc/doxygen/">Manual C++</a>
                             </li>
                             <li>
-                                <a href="portfolio-4-col.html">Python</a>
+                                <a href="https://gnuradio.org/doc/sphinx">Manual Python</a>
                             </li>
                             <li>
-                                <a href="portfolio-item.html">Wiki</a>
+                                <a href="https://wiki.gnuradio.org/index.php/Usage_Manual">Wiki</a>
                             </li>
                         </ul>
                         </li>
@@ -94,8 +94,9 @@
                     <ol>cmake ..</ol>
                     <ol>make</ol>
                     <ol>sudo make install</ol>
-                    <ol>export PYTHONPATH=/usr/local/lib/python2.7/dist-packages</ol>
                     <ol>sudo ldconfig</ol>
+                    <ol>cd</ol>
+                    <ol>export PYTHONPATH=/usr/local/lib/python2.7/dist-packages</ol>
                 </h4>
 
             <div class="col-lg-10">
@@ -118,13 +119,14 @@
             <ol>make test</ol>  
             <ol>sudo make install</ol>
             <ol>sudo ldconfig</ol>     
+            <ol>cd</ol>
             <ol>export LD_LIBRARY_PATH=/usr/local/lib</ol>
             </h4>
             </div>
                 
 
             <div class="col-lg-10">
-                <h2 class="page-header">Instalación del bloque gr-ieee802-11 en ubuntu 16.04</h2>
+                <h2 class="page-header">Instalación del módulo gr-ieee802-11 en ubuntu 16.04</h2>
             </div><br><br/>
           <div class="col-lg-12">
                 <h4 class="page-body">
@@ -142,7 +144,7 @@
             </div>
 
             <div class="col-lg-10">
-                <h2 class="page-header">Instalación del bloque gr-foo en ubuntu 16.04</h2>
+                <h2 class="page-header">Instalación del módulo gr-foo en ubuntu 16.04</h2>
             </div><br><br/>
           <div class="col-lg-12">
                 <h4 class="page-body">
@@ -158,6 +160,159 @@
             <ol>sudo ldconfig</ol>   
         </h4>
             </div>
+
+
+            <div class="col-lg-10">
+                <h2 class="page-header">Instalación del módulo gr-rftap en ubuntu 16.04</h2>
+            </div><br><br/>
+          <div class="col-lg-12">
+                <h4 class="page-body">
+            <ol>Ir al repositorio github: https://github.com/rftap/gr-rftap y descargar la única versión master</ol>
+            <ol>descomprimir y mover la carpeta hacia la ruta donde se instaló GNU Radio "workarea-gnuradio/gnuradio"</ol>
+            <ol>entrar a ésta carpeta (gr-rftap-master), abrir la terminal y ejecutar los siguientes comandos:</ol>
+            <ol>mkdir build</ol>
+            <ol>cd build</ol>
+            <ol>cmake ../</ol>     
+            <ol>make</ol>
+            <ol>make test</ol>  
+            <ol>sudo make install</ol>
+            <ol>sudo ldconfig</ol>   
+        </h4>
+            </div><br></br>
+
+
+
+            <div class="col-lg-10">
+                <h2 class="page-header">Tips</h2>
+            </div><br><br/>
+            <div class="col-lg-12">
+                <li><h4>UHD y USRP</h4></li>
+                <h4>A continuación se mostrará el procedimiento para la conexión del USRP con la red de tu sistema operativo Ubuntu, mediante el establecimiento de una red cableada y cómo saber si se encuentra conectado.</h4>
+
+        <ol><h4>Primero creas tu red con la misma subred donde se encuentra tu dispositivo USRP. </h4></ol>
+        <ol><h4>Seleccionas "Editar las conexiones"</h4></ol>
+        <h4 class="page-body">
+                 <center>  <img width="300" height="200" src="{% static 'int.png' %}" class="center"> </center>
+        </h4>
+
+        <ol><h4>Añadir</h4></ol>
+        <ol><h4>Crear red cableada</h4></ol>
+
+        <h4 class="page-body">
+                 <center>  <img width="800" height="300" src="{% static 'red1.png' %}" class="center"> </center>
+        </h4>
+
+        <ol><h4>Ajustes de IPv4</h4></ol>
+        <ol><h4>Método: Manual</h4></ol>
+        <ol><h4>Se añade dirección de subred</h4></ol>
+        <ol><h4>Se añade máscara</h4></ol>
+
+
+        <h4 class="page-body">
+                 <center>  <img width="600" height="300" src="{% static 'red2.png' %}" class="center"> </center>
+        </h4>
+
+        <ol><h4>Guardar. <br></br>
+
+Ahora ya se puede conectar el USRP a la computadora y comprobar que efectivamente se identifica el dispositivo, mediante un ping o el comando uhd_find_device escrito en terminal.
+        </h4></ol>
+
+
+
+        <h4 class="page-body">
+                 <center>  <img width="600" height="200" src="{% static 'uhd_find.png' %}" class="center"> </center>
+        </h4>
+            </div><br></br>
+
+
+          <div class="col-lg-12">
+                <li><h4>Es necesario instalar el módulo rftap para poder ver los paquetes que se encapsulan por el propio USRP, de lo contrario sólo verás los mensajes ICMP tratando de entablar una comunicación.</h4></li>
+                <h4 class="page-body">
+                 <center>  <img width="600" height="300" src="{% static 'wireshark_lo_wifi.png' %}" class="center"> </center></h4><br></br>
+                 <li><h4>Con el módulo rftap se verán los paquetes que se encapsulan por el propio USRP, de lo contrario sólo verás los mensajes ICMP tratando de entablar una comunicación. Para ello se conecta el modulo RFTap Encapsulation con los parámetros que se observan en la imagen y un socket a la loopback de la computadora para la conexión entre el USRP.</h4></li>
+                <h4 class="page-body">
+                 <center>  <img width="400" height="300" src="{% static 'rlt.png' %}" class="center"> </center></h4><br></br>
+
+
+ <li><h4>Una vez que se instala GNU Radio hay comandos de la biblioteca UHD que se ejectuan desde terminal, ya sea para ver la información del USRP, para revisar si se ha establecido la conexión, para actualizar la imagen, etc, a continuación se muestra las opciones.</h4></li>
+<h4 class="page-body">
+                 <center>  <img width="600" height="130" src="{% static 'uhd.png' %}" class="center"> </center></h4>
+<h4>De hecho, una simulación bastante útil cuando se corre algún protocolo es la simulación de una analizador de espectros que se puede ver a continuación.</h4>
+
+  <tbody>
+    <tr>
+      <td><pre> $ uhd_fft.py -a type=usrp1 -f 935M -s 2M
+</pre></td>
+    </tr>
+  </tbody>
+
+
+            </div><br></br>
+<h4 class="page-body">
+                 <center>  <img width="600" height="500" src="{% static 'images.png' %}" class="center"> </center></h4><br></br>
+
+<div class="col-lg-12">
+<li><h4>Además de los bloques que se generan por las compilaciones descritas en la parte superior de esta sección, se pueden correr los script correspondientes al diagrama de bloques generado en GRC, cuya programación es en el lenguaje python. Para su generación se habilita la siguiente opción.</h4></li>
+
+ <center>  <img width="600" height="300" src="{% static 'code.png' %}" class="center"> </center>
+</div>
+
+
+          <div class="col-lg-12">
+
+<h4>También se pueden generar simulaciones sólo con scripts programados en python, como los scripts de los archivos en la sección <b>[Pruebas con GRC]</b></h4></div>
+
+
+<div class="col-lg-12">
+<li><h4>Consejos para la programación y sumulación de cualquier protocolo, técnica, proceso, etc. que desees llevar a cabo:</h4></li>
+
+<div class="col-lg-8">
+ <li><h4>Verificar las salidas de datos mediante bloques que impriman estos datos como message_debugge, wireshark, incluso sólo con comandos que impriman los datos tipos pmt.</h4></li>
+
+<li><h4>Correr más de una vez la simulación y variar los parámetros.</h4></li>
+
+<li><h4>Revisar el tipo de datos en cada puerto y dentro de la función que deseas implementar, recordar que durante el flujo los datos son transformados en datos pmt.</h4></li>
+
+<li><h4>Buscar los módulos de los bloques que se encuentran en GRC en los archivos de instalación, de esta manera es más fácil entender el bloque y su función e incluso se puede modificar el bloque si es que la instalación fue hecha desde fuente (el procedimiento al principio de esta sección).</h4></li>
+
+<li><h4>Verificar los rangos de frecuencia, tanto del protocolo, como del USRP y de la programación de los bloques.</h4></li>
+
+<li><h4>Checar la Documentación y preguntar en Foros y checar respuesta de los foros, por ejemplo [http://lists.ettus.com/mailman/listinfo/usrp-users_lists.ettus.com]</h4></li>
+<div class="col-lg-6">
+</div>
+
+
+<div class="col-lg-12">
+<h4><b>Partes más comunes del código:</b></h4>
+<h4><b>Objeto tb:</b> Éste prácticamente es un derivado de la clase block, la cuál representa la mayor estructura del diagrama de flujo que corren a través del diagrama de bloques de la interfaz GRC. Sus tres principales funciones son start(), wait() y stop(); son las funciones que comienzan, paran y controlan el flujo de datos.</h4>
+
+<h4><b>Source:</b> Es el bloque de entrada de datos, se encuentra al principio del diagrama de flujo y junto con el bloque sink forman los nodos principales en lo que es la Teoría de Grafos.</h4>
+
+<h4><b>Sink:</b> Es el bloque de salida de datos, se agrega regularmente al final de diagrama de flujo en GRC y existen muchos bloques sink de tipo QT para la representación de datos en una interfáz gráfica</h4>
+
+<h4><b>Función connect:</b>Ésta función es útil para conectar clases o bloques dentro de GNU Radio, de esta manera es como se genera el fkujo de datos al conectar los bloque, siempre y cuando el tipo de datos corresponda entre conexión.</h4>
+
+<h4></h4>
+
+
+
+<div class="col-lg-12">
+
+
+
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website, year</p>
+                </div>
+            </div>
+        </footer>
+
+        
+            </div><br></br>
+
+
+
     <script src="{% static 'js/jquery.js' %}"></script>
 
     <!-- Bootstrap Core JavaScript -->

@@ -49,13 +49,13 @@
                                 <a href="https://www.gnuradio.org/">Foro GNU Radio</a>
                             </li>
                             <li>
-                                <a href="portfolio-3-col.html">C++</a>
+                                <a href="https://www.gnuradio.org/doc/doxygen/">Manual C++</a>
                             </li>
                             <li>
-                                <a href="portfolio-4-col.html">Python</a>
+                                <a href="https://gnuradio.org/doc/sphinx">Manual Python</a>
                             </li>
                             <li>
-                                <a href="portfolio-item.html">Wiki</a>
+                                <a href="https://wiki.gnuradio.org/index.php/Usage_Manual">Wiki</a>
                             </li>
                         </ul>
                     </li>
@@ -84,31 +84,145 @@
             </div>
         </div>
 
-                <h4>Como te habras dado cuenta al instalar GNU Radio y los bloques correspondientes, tú puedes construir tu propio bloque en una carpeta dedicada y compilarlo.</h4>
-        <hr>
-             <center>  <img width="800" height="500" src="{% static 'gnur.png' %}" class="center"> </center><hr>
+                <h4>Como te habras dado cuenta al instalar GNU Radio y los modulos correspondientes, tú puedes construir tu propio bloque en una carpeta dedicada y compilarlo.</h4>
+             <center>  <img width="800" height="500" src="{% static 'gnur.png' %}" class="center"> </center>
 
-        <hr>
-               <h4>Las instrucciones para crear la carpeta que tenga el contenido necesario tanto en SWIG, XML, C++ y Python [] son las siguientes:
-                <li>se abre terminal desde tu carpeta principal y ejecutas los siguientes comandos:</li>
-                <li>gr_modtool newmod nombre_de_funcion</li>
-                <li>cd nombre_de_funcion</li>
-                <li>gr_modtool add -t general bloque</li>
+ 
+               <h4>Las instrucciones para crear la carpeta que tenga el contenido necesario tanto en SWIG, XML, C++ y Python se encuentran en el siguiente enlace [https://wiki.gnuradio.org/index.php/OutOfTreeModules], el conjunto de estos códigos forman los módulos desplegados en GNU Radio Companion y a su vez los bloques. A continuación explicaré de manera general la creación de un módulo:<br></br>
+                <li>Se abre terminal desde tu carpeta principal y ejecutas los siguientes comandos:</li>
+
+  <tbody>
+
+    <tr>
+      <td><pre>
+$ gr_modtool newmod nombre_de_funcion
+$ cd nombre_de_funcion
+$ gr_modtool add -t general bloque
+               </pre>
+      </td>
+
+    </tr>
+
+  </tbody>
+
+
                </h4>
         <!-- Footer -->
 
-                <h4>Hay que recordar que GNU Radio funciona como una red, en toda red existe un "flujo" que va de nodo a nodo, en este caso de bloque a bloque. Es por ello que en todos los scripts que generan los bloque en GNU Radio te encontrarás con las siguientes líneas de código:
-                    <ol>def --init--(self,variable):</ol>
-                    <ol>            self.variable=variable</ol>
-                    <ol>            gr.sync_block.__init__(self,</ol>
-                    <ol>        name="nombre del bloque"</ol>
-                    <ol>        in_sig=[numpy.tipo_de_dato]</ol>
-                    <ol>        out_sig=[numpy.tipo_de_dato]</ol>
-                En estos comandos previos, sobre todo en in y out sig se muestra el flujo de datos, in_sig como entrada y out_sig como salida.
-                Un ejemplo es el bloque S-MAC que se muestra a continuación</h4>
+                <h4>Hay que recordar que GNU Radio funciona como una red con un "flujo" que va de nodo a nodo, en este caso de bloque a bloque. Es por ello que en todos los scripts que generan los bloque en GNU Radio te encontrarás con las siguientes líneas de código:</h4>
+
+  <tbody>
+
+    <tr>
+      <td><pre>def __init__(self,variable):
+            self.variable=variable
+            gr.sync_block.__init__(self,
+            name="nombre del bloque"
+            in_sig=[numpy.tipo_de_dato]
+            out_sig=[numpy.tipo_de_dato]</pre>
+      </td>
+
+    </tr>
+
+  </tbody>
+
+                <h4>En estas líneas de código previas, sobre todo en in_sig y out_sig, se ejecuta el flujo de datos, in_sig como entrada y out_sig como salida.
+                <hr>
+                Un ejemplo es el modulo S_MAC que se muestra a continuación:</h4>
+
+  <tbody>
+
+    <tr>
+      <td><pre>
+$ gr_modtool newmod S_MAC
+$ cd gr-S_MAC
+$ gr_modtool add -t general sleep
+               </pre>
+      </td>
+
+    </tr>
+
+  </tbody>
+
+             <center>  <img width="800" height="200" src="{% static 'smac.png' %}" class="center"> </center><hr>
+
+
+                <h4>Se pueden observar varias carpetas que son creadas cuando se generar el módulo con las instrucciones anteriores. Dentro de la carpeta python encontrarás algunos códigos que tienes que modificar para la configuración de los bloques. Los archivos que se deben modificar dentro de la carpeta python son qa_sleep.py y sleep.py. Una propuesta fue la que se encuentra en los siguientes archivos.<br></br>
+
+
+        <h4 class="page-body">
+                 <center>  <img width="600" height="150" src="{% static 'spython.png' %}" class="center"> </center>
+        </h4>
+
+                </h4>
+
+           <div class="col-lg-10">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                    <p><a href="{% static 'gr-S_MAC.tar.gz' %}"><h3>Bloque SMAC</h3></a></p>
+                </div>
+            </div>
+        </div><br></br><br></br><br></br>
+<h4>
+<li>Dentro de estos archivos encontrarás una carpeta con el nombre de python, dentro de ella se encuentran dos códigos para la programación del módulo y los bloques con el nombre de qa_sleep.py y sleep.py.</li><br></br>
+<li>A continuación en las siguientes dos imágenes se muestran las líneas de código propuestas para una módulo SMAC, del lado derecho qa_sleep.py y en el izquierdo sleep.py.</li><br></br>
+</h4>
+
+ <img width="500" height="400" src="{% static 'hola.png' %}" class=""> 
+ <img width="400" height="550" src="{% static 'hola2.png' %}" class=""> 
+    
+<h4>
+<li>En la imagen de qa_sleep el cuadro de color rojo muestra los métodos creados en todo módulo, en éste prácticamente se define un objeto tb que encontraras su función en <b>[Instalación y tips]</b>.</li><br></br> 
+<li>El cuadro azul muestra los métodos de gnuradio que hacen las conexiones entre funciones para generar el flujo de datos, la primer función dentro de connect debe ser tu source y la última tu sink.</li><br></br>
+<li>El cuadro verde muestra una función propia de la clase TestCase, que se ejecuta para la verificación del código, en particular la función compara la función de la clase sleep y el valor que se espera para un ejemplo de simulación.</li><br></br> 
+<li>En el último cuadro amarillo se muestran los comandos que ejecutan el código qa_sleep.py junto con la interfaz xml.</li></h4>
+
+<h4><li>De igual manera se modifica el archivo xml, name con el puerto del bloque (in o out), type con el tipo de dato de entrada y salida que se ha modificado en los archivos .py.</li></h4> 
+ <center> <img width="200" height="300" src="{% static 'xml.png' %}" class=""> </center>
+                <span style=»border-image: initial; border: 1px solid blue;»></span><br></br>
+<hr>
+<div class="row-lg-12">
+                
+                <h4>Después de hacer tus modificaciones a los códigos debes compilar la aplicación. Se ejecuntan los siguientes comandos en la carpeta principal del módulo:</h4>       
+  <tbody>
+    <tr>
+      <td><pre>
+$ mkdir build    
+$ cd build/
+$ cmake ../      
+$ make
+$ sudo make install</pre></td>
+    </tr>
+  </tbody>
+     
+
+            <h4>En esa misma carpeta donde se compilaron los archivos ejecutas el siguiente comando para verificar que el código de los archivos creados o modificados corresponden al correcto flujo de datos y tipo de dato. Esto no verifica que tu código sea funcional en el diagrama de bloques de GRC, sólo que son correspondientes a lo que se programa en cada archivo que en conjunto genera la aplicación.</h4>
+  <tbody>
+    <tr>
+      <td><pre>
+gr-S_MAC/build $ make test   
+gr-S_MAC/build $ ctest -V -R square   
+</pre></td>
+    </tr>
+  </tbody>
+
+
+
+<br></br><br></br><br></br><br></br>
+</div>     
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website, year</p>
+                </div>
+            </div>
+        </footer>
 
     </div>
     <!-- /.container -->
+
+
+
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
@@ -124,5 +238,6 @@
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
 
 </body>
+
 
 </html>
